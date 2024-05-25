@@ -11,7 +11,10 @@ prepare_react_native_project!
 pod "OpenSSL-Universal", "1.1.2200"
 
 linkage = ENV['USE_FRAMEWORKS']
-use_modular_headers!
+# use_modular_headers!
+
+use_frameworks! :linkage => :static
+
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
   use_frameworks! :linkage => linkage.to_sym

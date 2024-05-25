@@ -40,9 +40,11 @@ const Login = () => {
     await signUp(payload)
       .then(res => {
         if (res) {
+          const user = auth().currentUser;
           const userData = res;
-          userData.user.displayName = data.name;
-          dispatch(saveUserData(userData));
+          // userData.user.displayName = data.name;
+          user.displayName = data.name;
+          dispatch(saveUserData(user));
           setLoading(false);
           navigation.dispatch(StackActions.replace('Dashboard'));
         }        
@@ -62,8 +64,8 @@ const Login = () => {
     // await dispatch(login(payload));
     await login(payload)
       .then(res => {
-        console.log('res', res);
-        dispatch(saveUserData(res));
+        const user = auth().currentUser;
+        dispatch(saveUserData(res.user));
         setLoading(false);
         navigation.dispatch(StackActions.replace('Dashboard'));
       })

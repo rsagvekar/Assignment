@@ -99,7 +99,8 @@ const Profile = () => {
             Name
           </Text>
           <TextInput
-            value={name}
+            value={data?.user?.displayName}
+            editable={false}
             keyboardType="email-address"
             style={{
               height: 50,
@@ -129,7 +130,8 @@ const Profile = () => {
             Email
           </Text>
           <TextInput
-            value={email}
+            value={data?.user?.email}
+            editable={false}
             keyboardType="email-address"
             style={{
               height: 50,

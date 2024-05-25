@@ -62,7 +62,7 @@ const DrawerModal = () => {
         </TouchableOpacity>
         <View style={{marginHorizontal: 10}}>
           <Text numberOfLines={1} style={{fontSize: 24, fontWeight: '700'}}>
-            Hello User
+            Hello
           </Text>
         </View>
         <TouchableOpacity
