@@ -31,7 +31,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSignup = async () => {
-    setLoading(true);
     const payload = {
       name: name,
       email: email,
@@ -41,37 +40,26 @@ const Login = () => {
       .then(res => {
         if (res) {
           const user = auth().currentUser;
-          const userData = res;
-          // userData.user.displayName = data.name;
-          user.displayName = data.name;
           dispatch(saveUserData(user));
-          setLoading(false);
           navigation.dispatch(StackActions.replace('Dashboard'));
-        }        
-
+        }
       })
-      .catch(err => {
-        setLoading(false);
-      });
+      .catch(err => {});
   };
 
   const handleLogin = async () => {
-    setLoading(true);
     const payload = {
       email: email,
       password: password,
     };
-    // await dispatch(login(payload));
     await login(payload)
       .then(res => {
         const user = auth().currentUser;
-        dispatch(saveUserData(res.user));
-        setLoading(false);
+        dispatch(saveUserData(user));
         navigation.dispatch(StackActions.replace('Dashboard'));
       })
       .catch(err => {
         console.log(err);
-        setLoading(false);
       });
   };
 
