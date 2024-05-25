@@ -20,15 +20,11 @@ import {StackActions, useNavigation} from '@react-navigation/native';
 const height = Dimensions.get('screen').height;
 const width = Dimensions.get('screen').width;
 const DrawerModal = () => {
+  
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const [isModalVisible, setModalVisible] = useState(false);
-
   const data = useSelector(state => state.CommonReducer);
 
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
   return (
     <Modal
       isVisible={data.showDrawer}
