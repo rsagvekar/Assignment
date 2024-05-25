@@ -15,7 +15,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import Spinner from 'react-native-loading-spinner-overlay';
-import {login, saveUserData, signUp} from '../redux/Actions/CommonActions';
+import {
+  loading,
+  login,
+  saveUserData,
+  signUp,
+} from '../redux/Actions/CommonActions';
 
 const height = Dimensions.get('screen').height;
 const width = Dimensions.get('screen').width;
@@ -28,9 +33,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const [authType, setAuthType] = useState(0);
   const [isSecure, setIsSecure] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handleSignup = async () => {
+    dispatch(loading(true));
     const payload = {
       name: name,
       email: email,
@@ -38,34 +43,44 @@ const Login = () => {
     };
     await signUp(payload)
       .then(res => {
-        if (res) {
+        if (res.user.uid) {
           const user = auth().currentUser;
           dispatch(saveUserData(user));
           navigation.dispatch(StackActions.replace('Dashboard'));
+          dispatch(loading(false));
         }
       })
-      .catch(err => {});
+      .catch(err => {
+        console.log(err);
+        dispatch(loading(false));
+      });
   };
 
   const handleLogin = async () => {
+    dispatch(loading(true));
     const payload = {
       email: email,
       password: password,
     };
     await login(payload)
       .then(res => {
-        const user = auth().currentUser;
-        dispatch(saveUserData(user));
-        navigation.dispatch(StackActions.replace('Dashboard'));
+        console.log(res);
+        if (res.user.uid) {
+          const user = auth().currentUser;
+          dispatch(saveUserData(user));
+          navigation.dispatch(StackActions.replace('Dashboard'));
+          dispatch(loading(false));
+        }
       })
       .catch(err => {
         console.log(err);
+        dispatch(loading(false));
       });
   };
 
   return (
     <View style={styles.container}>
-      <Spinner visible={loading} textContent={'Loading...'} />
+      <Spinner visible={data.loading} textContent={'Loading...'} />
       <ScrollView showsVerticalScrollIndicator={false}>
         {authType == 0 ? (
           <>

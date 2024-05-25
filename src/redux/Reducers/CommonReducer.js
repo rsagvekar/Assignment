@@ -2,6 +2,7 @@ import {
   CURRENTDRAWERTAB,
   CURRENTTAB,
   GETNEWS,
+  LOADING,
   LOGINSUCCESS,
   SHOWMOREMODAL,
   SIGNUPSUCCESS,
@@ -15,6 +16,7 @@ const initialState = {
   currentDrawerTab: 'home',
   loginSuccess: false,
   signUpSuccess: false,
+  loading: false,
 };
 
 const CommonReducer = (state = initialState, action) => {
@@ -41,6 +43,12 @@ const CommonReducer = (state = initialState, action) => {
       return {
         ...state,
         currentDrawerTab: action.payload,
+      };
+    }
+    case LOADING: {
+      return {
+        ...state,
+        loading: action.payload,
       };
     }
     case LOGINSUCCESS: {

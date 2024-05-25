@@ -4,6 +4,7 @@ import {
   CURRENTDRAWERTAB,
   CURRENTTAB,
   GETNEWS,
+  LOADING,
   LOGIN,
   LOGINSUCCESS,
   SHOWMOREDATINGMODAL,
@@ -46,15 +47,23 @@ export const currentDrawerTab = data => {
   };
 };
 
+export const loading = data => {
+  return dispatch => {
+    dispatch({type: LOADING, payload: data});
+  };
+};
+
 export const login = async data => {
   try {
     const userCredential = await auth().signInWithEmailAndPassword(
       data.email,
       data.password,
     );
+    console.log('userCredential',userCredential);
     saveUserData(userCredential);
     return userCredential;
   } catch (error) {
+    loading(false);
     alert(error);
     return;
   }
@@ -69,6 +78,7 @@ export const signUp = async data => {
     return userCredential;
   } catch (error) {
     alert(error);
+    loading(false);
     return;
   }
 };

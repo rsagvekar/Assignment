@@ -7,4 +7,5 @@ export const LOGIN = 'LOGIN';
 export const SIGNUP = 'SIGNUP';
 export const LOGINSUCCESS = 'LOGINSUCCESS';
 export const SIGNUPSUCCESS = 'SIGNUPSUCCESS';
+export const LOADING = 'LOADING';
 
