@@ -26,15 +26,7 @@ const DashboardScreen = () => {
   return (
     <View style={styles.container}>
       {/* Header Component */}
-      <View
-        style={{
-          height: 60,
-          paddingLeft: 12,
-          borderBottomWidth: 1,
-          borderBottomColor: '#787878',
-          justifyContent: 'center',
-          backgroundColor: '#fff',
-        }}>
+      <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
             dispatch(showMoreModal(true));
@@ -58,18 +50,7 @@ const DashboardScreen = () => {
         </View>
       </ScrollView>
       {/* bottom tabs */}
-      <View
-        style={{
-          height: 80,
-          paddingHorizontal: 10,
-          paddingVertical: 4,
-          borderWidth: 1,
-          borderTopRightRadius: 24,
-          borderTopLeftRadius: 24,
-          alignItems: 'center',
-          // backgroundColor: 'red',
-          flexDirection: 'row',
-        }}>
+      <View style={styles.bottomTabContainer}>
         <TouchableOpacity
           onPress={() => {
             dispatch(currentTab('home'));
@@ -88,11 +69,10 @@ const DashboardScreen = () => {
             />
           )}
           <Text
-            style={{
-              fontSize: 16,
-              fontWeight: '600',
-              color: data.currentTab == 'home' ? '#6C63FF' : '#787878',
-            }}>
+            style={[
+              styles.TabText,
+              {color: data.currentTab == 'home' ? '#6C63FF' : '#787878'},
+            ]}>
             Home
           </Text>
         </TouchableOpacity>
@@ -113,11 +93,10 @@ const DashboardScreen = () => {
             />
           )}
           <Text
-            style={{
-              fontSize: 16,
-              fontWeight: '600',
-              color: data.currentTab == 'news' ? '#6C63FF' : '#787878',
-            }}>
+            style={[
+              styles.TabText,
+              {color: data.currentTab == 'home' ? '#6C63FF' : '#787878'},
+            ]}>
             News
           </Text>
         </TouchableOpacity>
@@ -138,11 +117,10 @@ const DashboardScreen = () => {
             />
           )}
           <Text
-            style={{
-              fontSize: 16,
-              fontWeight: '600',
-              color: data.currentTab == 'contact' ? '#6C63FF' : '#787878',
-            }}>
+            style={[
+              styles.TabText,
+              {color: data.currentTab == 'home' ? '#6C63FF' : '#787878'},
+            ]}>
             Contact
           </Text>
         </TouchableOpacity>
@@ -155,6 +133,29 @@ const DashboardScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    height: 60,
+    paddingLeft: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#787878',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  bottomTabContainer: {
+    height: 80,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderTopRightRadius: 24,
+    borderTopLeftRadius: 24,
+    alignItems: 'center',
+    // backgroundColor: 'red',
+    flexDirection: 'row',
+  },
+  TabText: {
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
 

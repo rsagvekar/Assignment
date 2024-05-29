@@ -80,21 +80,7 @@ const Users = () => {
             dispatch(currentDrawerTab('home'));
             navigation.goBack();
           }}
-          style={{
-            // position: 'absolute',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 36,
-            marginTop: 20,
-            marginLeft: 20,
-            // top: 10,
-            // left: 10,
-            height: 48,
-            width: 48,
-            borderWidth: 2,
-            borderColor: '#6C63FF',
-            backgroundColor: '#6C63FF',
-          }}>
+          style={styles.backButton}>
           <Image
             source={require('../assets/back.png')}
             style={{height: 30, width: 30}}
@@ -110,15 +96,7 @@ const Users = () => {
         contentContainerStyle={{marginHorizontal: 20}}
         renderItem={({item}) => {
           return (
-            <TouchableOpacity
-              style={{
-                borderWidth: 1,
-                borderRadius: 12,
-                margin: 8,
-                paddingVertical: 8,
-                paddingHorizontal: 12,
-                flexDirection: 'row',
-              }}>
+            <TouchableOpacity style={styles.touchableCard}>
               <Image
                 source={{uri: item.pfp}}
                 style={{height: 60, width: 60, borderRadius: 30}}
@@ -144,6 +122,26 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
+  },
+  backButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 36,
+    marginTop: 20,
+    marginLeft: 20,
+    height: 48,
+    width: 48,
+    borderWidth: 2,
+    borderColor: '#6C63FF',
+    backgroundColor: '#6C63FF',
+  },
+  touchableCard: {
+    borderWidth: 1,
+    borderRadius: 12,
+    margin: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
   },
 });
 

@@ -92,21 +92,11 @@ const Login = () => {
               />
             </View>
             <Text
-              style={{
-                fontWeight: '700',
-                fontSize: 36,
-                color: '#000',
-                textAlign: 'center',
-              }}>
+              style={styles.helloText}>
               Hello
             </Text>
             <Text
-              style={{
-                fontWeight: '600',
-                fontSize: 18,
-                color: '#000',
-                textAlign: 'center',
-              }}>
+              style={styles.welcomeText}>
               Welcome to the assignment app
             </Text>
             <View style={{alignItems: 'center', marginTop: 36}}>
@@ -114,21 +104,9 @@ const Login = () => {
                 onPress={() => {
                   setAuthType(1);
                 }}
-                style={{
-                  height: 50,
-                  borderRadius: 24,
-                  width: '70%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#6C63FF',
-                }}>
+                style={styles.loginTouchable}>
                 <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 20,
-                    color: '#fff',
-                    textAlign: 'center',
-                  }}>
+                  style={styles.loginText}>
                   Login
                 </Text>
               </TouchableOpacity>
@@ -139,24 +117,9 @@ const Login = () => {
                   setEmail('');
                   setPassword('');
                 }}
-                style={{
-                  marginTop: 24,
-                  height: 50,
-                  borderRadius: 24,
-                  borderWidth: 2,
-                  borderColor: '#6C63FF',
-                  width: '70%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fff',
-                }}>
+                style={styles.signUpTouchable}>
                 <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 20,
-                    color: '#6C63FF',
-                    textAlign: 'center',
-                  }}>
+                  style={styles.signUpText}>
                   Sign Up
                 </Text>
               </TouchableOpacity>
@@ -168,14 +131,7 @@ const Login = () => {
               onPress={() => {
                 setAuthType(0);
               }}
-              style={{
-                height: 36,
-                width: 36,
-                borderRadius: 24,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: '#6C63FF',
-              }}>
+              style={styles.backTouchable}>
               <Image
                 source={require('../assets/back.png')}
                 style={{height: 24, width: 24}}
@@ -191,29 +147,13 @@ const Login = () => {
 
             <View>
               <Text
-                style={{
-                  fontWeight: '600',
-                  fontSize: 20,
-                  color: '#6C63FF',
-                }}>
+                style={styles.usernameText}>
                 Username
               </Text>
               <TextInput
                 value={email}
                 keyboardType="email-address"
-                style={{
-                  // marginTop: 4,
-                  height: 50,
-                  borderRadius: 12,
-                  borderWidth: 2,
-                  paddingHorizontal: 12,
-                  fontSize: 18,
-                  color: '#6C63FF',
-                  borderColor: '#6C63FF',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fff',
-                }}
+                style={styles.usernameTextInput}
                 onChangeText={text => {
                   setEmail(text);
                 }}
@@ -221,29 +161,14 @@ const Login = () => {
             </View>
             <View>
               <Text
-                style={{
-                  fontWeight: '600',
-                  fontSize: 20,
-                  color: '#6C63FF',
-                }}>
+                style={styles.passwordText}>
                 Password
               </Text>
               <TextInput
                 value={password}
                 keyboardType="email-address"
                 secureTextEntry={isSecure}
-                style={{
-                  height: 50,
-                  borderRadius: 12,
-                  borderWidth: 2,
-                  paddingHorizontal: 12,
-                  fontSize: 18,
-                  color: '#6C63FF',
-                  borderColor: '#6C63FF',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fff',
-                }}
+                style={styles.passwordTextInput}
                 onChangeText={text => {
                   setPassword(text);
                 }}
@@ -255,21 +180,9 @@ const Login = () => {
                 onPress={() => {
                   handleLogin();
                 }}
-                style={{
-                  height: 50,
-                  borderRadius: 24,
-                  width: '70%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#6C63FF',
-                }}>
+                style={styles.loginTouchable1}>
                 <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 20,
-                    color: '#fff',
-                    textAlign: 'center',
-                  }}>
+                  style={styles.loginText1}>
                   Login
                 </Text>
               </TouchableOpacity>
@@ -281,14 +194,7 @@ const Login = () => {
               onPress={() => {
                 setAuthType(0);
               }}
-              style={{
-                height: 36,
-                width: 36,
-                borderRadius: 24,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: '#6C63FF',
-              }}>
+              style={styles.backTouchable}>
               <Image
                 source={require('../assets/back.png')}
                 style={{height: 24, width: 24}}
@@ -303,28 +209,13 @@ const Login = () => {
             </View>
             <View>
               <Text
-                style={{
-                  fontWeight: '600',
-                  fontSize: 20,
-                  color: '#6C63FF',
-                }}>
+                style={styles.nameText}>
                 Name
               </Text>
               <TextInput
                 value={name}
                 keyboardType="email-address"
-                style={{
-                  height: 50,
-                  borderRadius: 12,
-                  borderWidth: 2,
-                  paddingHorizontal: 12,
-                  fontSize: 18,
-                  color: '#6C63FF',
-                  borderColor: '#6C63FF',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fff',
-                }}
+                style={styles.nameTextInput}
                 onChangeText={text => {
                   setName(text);
                 }}
@@ -332,29 +223,13 @@ const Login = () => {
             </View>
             <View>
               <Text
-                style={{
-                  marginTop: 12,
-                  fontWeight: '600',
-                  fontSize: 20,
-                  color: '#6C63FF',
-                }}>
+                style={styles.usernameText1}>
                 Username
               </Text>
               <TextInput
                 value={email}
                 keyboardType="email-address"
-                style={{
-                  height: 50,
-                  borderRadius: 12,
-                  borderWidth: 2,
-                  paddingHorizontal: 12,
-                  fontSize: 18,
-                  color: '#6C63FF',
-                  borderColor: '#6C63FF',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fff',
-                }}
+                style={styles.usernameTextInput1}
                 onChangeText={text => {
                   setEmail(text);
                 }}
@@ -362,30 +237,14 @@ const Login = () => {
             </View>
             <View>
               <Text
-                style={{
-                  marginTop: 12,
-                  fontWeight: '600',
-                  fontSize: 20,
-                  color: '#6C63FF',
-                }}>
+                style={styles.passwordText1}>
                 Password
               </Text>
               <TextInput
                 value={password}
                 keyboardType="email-address"
                 secureTextEntry={isSecure}
-                style={{
-                  height: 50,
-                  borderRadius: 12,
-                  borderWidth: 2,
-                  paddingHorizontal: 12,
-                  fontSize: 18,
-                  color: '#6C63FF',
-                  borderColor: '#6C63FF',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fff',
-                }}
+                style={styles.passwordTextInput1}
                 onChangeText={text => {
                   setPassword(text);
                 }}
@@ -397,21 +256,9 @@ const Login = () => {
                 onPress={() => {
                   handleSignup();
                 }}
-                style={{
-                  height: 50,
-                  borderRadius: 24,
-                  width: '70%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#6C63FF',
-                }}>
+                style={styles.signUpTouchable1}>
                 <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 20,
-                    color: '#fff',
-                    textAlign: 'center',
-                  }}>
+                  style={styles.signupbuttonText}>
                   Sign Up
                 </Text>
               </TouchableOpacity>
@@ -436,6 +283,174 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 10,
   },
+  helloText: {
+    fontWeight: '700',
+    fontSize: 36,
+    color: '#000',
+    textAlign: 'center',
+  },
+  welcomeText: {
+    fontWeight: '600',
+    fontSize: 18,
+    color: '#000',
+    textAlign: 'center',
+  },
+  loginTouchable: {
+    height: 50,
+    borderRadius: 24,
+    width: '70%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#6C63FF',
+  },
+  loginText: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  signUpTouchable: {
+    marginTop: 24,
+    height: 50,
+    borderRadius: 24,
+    borderWidth: 2,
+    borderColor: '#6C63FF',
+    width: '70%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  signUpText: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#6C63FF',
+    textAlign: 'center',
+  },
+  backTouchable: {
+    height: 36,
+    width: 36,
+    borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#6C63FF',
+  },
+  usernameText: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#6C63FF',
+  },
+  usernameTextInput: {
+    // marginTop: 4,
+    height: 50,
+    borderRadius: 12,
+    borderWidth: 2,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  passwordText: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#6C63FF',
+  },
+  passwordTextInput: {
+    height: 50,
+    borderRadius: 12,
+    borderWidth: 2,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  loginTouchable1: {
+    height: 50,
+    borderRadius: 24,
+    width: '70%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#6C63FF',
+  },
+  loginText1: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  nameText: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#6C63FF',
+  },
+  nameTextInput: {
+    height: 50,
+    borderRadius: 12,
+    borderWidth: 2,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  usernameText1: {
+    marginTop: 12,
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#6C63FF',
+  },
+  usernameTextInput1: {
+    height: 50,
+    borderRadius: 12,
+    borderWidth: 2,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  passwordText1: {
+    marginTop: 12,
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#6C63FF',
+  },
+  passwordTextInput1: {
+    height: 50,
+    borderRadius: 12,
+    borderWidth: 2,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  signUpTouchable1: {
+    height: 50,
+    borderRadius: 24,
+    width: '70%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#6C63FF',
+  },
+  signupbuttonText: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: '#fff',
+    textAlign: 'center',
+  },
+
 });
 
 export default Login;

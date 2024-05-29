@@ -59,7 +59,6 @@ export const login = async data => {
       data.email,
       data.password,
     );
-    console.log('userCredential',userCredential);
     saveUserData(userCredential);
     return userCredential;
   } catch (error) {
@@ -75,6 +74,7 @@ export const signUp = async data => {
       data.email,
       data.password,
     );
+    console.log('userCredential',userCredential);
     return userCredential;
   } catch (error) {
     alert(error);

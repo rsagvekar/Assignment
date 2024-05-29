@@ -99,7 +99,8 @@ const Settings = () => {
                 Leave Feedback
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+            <TouchableOpacity
+              style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image
                 source={require('../assets/star.png')}
                 style={{height: 36, width: 36}}
@@ -119,20 +120,7 @@ const Settings = () => {
             }}>
             Notifications
           </Text>
-          <View
-            style={{
-              // height: 80,
-              borderRadius: 12,
-              borderWidth: 1,
-              fontSize: 18,
-              padding: 12,
-              color: '#6C63FF',
-              borderColor: '#6C63FF',
-              // alignItems: 'center',
-              // justifyContent: 'center',
-              backgroundColor: '#fff',
-              // flexDirection: 'row',
-            }}>
+          <View style={styles.notificationToggle}>
             <TouchableOpacity style={{flexDirection: 'row'}}>
               <ToggleSwitch
                 isOn={toggle}
@@ -180,7 +168,7 @@ const Settings = () => {
                 // label="Example label"
                 labelStyle={{color: 'black', fontWeight: '900'}}
                 size="small"
-                onToggle={isOn => setToggle(isOn)}
+                onToggle={isOn => setDarkTheme(isOn)}
               />
               <Text style={{fontSize: 20, fontWeight: '600', marginLeft: 8}}>
                 Turn {darkTheme ? 'off' : 'on'} dark theme
@@ -197,20 +185,7 @@ const Settings = () => {
             }}>
             Legal
           </Text>
-          <View
-            style={{
-              // height: 80,
-              borderRadius: 12,
-              borderWidth: 1,
-              fontSize: 18,
-              padding: 12,
-              color: '#6C63FF',
-              borderColor: '#6C63FF',
-              // alignItems: 'center',
-              // justifyContent: 'center',
-              backgroundColor: '#fff',
-              // flexDirection: 'row',
-            }}>
+          <View style={styles.themeToggle}>
             <TouchableOpacity
               style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image
@@ -246,6 +221,32 @@ const Settings = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  notificationToggle: {
+    // height: 80,
+    borderRadius: 12,
+    borderWidth: 1,
+    fontSize: 18,
+    padding: 12,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    backgroundColor: '#fff',
+    // flexDirection: 'row',
+  },
+  themeToggle: {
+    // height: 80,
+    borderRadius: 12,
+    borderWidth: 1,
+    fontSize: 18,
+    padding: 12,
+    color: '#6C63FF',
+    borderColor: '#6C63FF',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    backgroundColor: '#fff',
+    // flexDirection: 'row',
   },
 });
 

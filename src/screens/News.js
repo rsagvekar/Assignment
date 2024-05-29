@@ -84,16 +84,7 @@ const News = () => {
   return (
     <View style={{backgroundColor: '#fff'}}>
       <ScrollView>
-        <Text
-          style={{
-            marginLeft: 20,
-            marginTop: 24,
-            fontSize: 20,
-            fontWeight: '800',
-            color: AppTheme.light.TextColor,
-          }}>
-          Top Headlines
-        </Text>
+        <Text style={styles.topHeadlines}>Top Headlines</Text>
         <FlatList
           data={topHeadlines}
           horizontal
@@ -105,46 +96,21 @@ const News = () => {
                 onPress={() => {
                   navigation.navigate('NewsDetails', {data: item});
                 }}
-                style={{
-                  marginRight: 12,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
+                style={styles.newsTouchable}>
                 {item.urlToImage ? (
                   <Image
                     source={{uri: item.urlToImage}}
-                    style={{
-                      height: 60,
-                      width: 60,
-                      borderRadius: 60,
-                      borderWidth: 1,
-                    }}
+                    style={styles.newsSnap}
                   />
                 ) : (
-                  <View
-                    style={{
-                      height: 60,
-                      width: 60,
-                      borderRadius: 60,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderWidth: 0.5,
-                    }}>
+                  <View style={styles.noImage}>
                     <Image
                       source={require('../assets/noImage.png')}
                       style={{height: 36, width: 36, borderRadius: 48}}
                     />
                   </View>
                 )}
-                <Text
-                  numberOfLines={1}
-                  style={{
-                    width: 50,
-                    marginTop: 8,
-                    fontSize: 18,
-                    fontWeight: '800',
-                    color: AppTheme.light.TextColor,
-                  }}>
+                <Text numberOfLines={1} style={styles.heading}>
                   {item.title ? item.title : item.content}
                 </Text>
               </TouchableOpacity>
@@ -168,30 +134,24 @@ const News = () => {
                   setSelectedCategory(item.title);
                   getNews(item.label);
                 }}
-                style={{
-                  marginRight: 12,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  height: 40,
-                  paddingHorizontal: 20,
-                  borderRadius: 20,
-                  borderWidth: 1,
-                  backgroundColor:
-                    selectedCategory == item.title ? '#000' : '#fff',
-                  // backgroundColor: 'red'
-                }}>
+                style={[
+                  styles.newsCard,
+                  {
+                    backgroundColor:
+                      selectedCategory == item.title ? '#000' : '#fff',
+                  },
+                ]}>
                 <Text
                   numberOfLines={1}
-                  style={{
-                    // width: 50,
-                    // marginTop: 8,
-                    fontSize: 18,
-                    fontWeight: '800',
-                    color:
-                      selectedCategory == item.title
-                        ? '#fff'
-                        : AppTheme.light.TextColor,
-                  }}>
+                  style={[
+                    styles.newsTitle,
+                    {
+                      color:
+                        selectedCategory == item.title
+                          ? '#fff'
+                          : AppTheme.light.TextColor,
+                    },
+                  ]}>
                   {item.title ? item.title : item.content}
                 </Text>
               </TouchableOpacity>
@@ -208,32 +168,18 @@ const News = () => {
                 onPress={() => {
                   navigation.navigate('NewsDetails', {data: item});
                 }}
-                style={{
-                  height: 160,
-                  marginBottom: 12,
-                  borderRadius: 12,
-                  elevation: 20,
-                  backgroundColor: '#fff',
-                  shadowColor: '#171717',
-                  shadowOffset: {width: -2, height: 4},
-                  shadowOpacity: 0.2,
-                  shadowRadius: 3,
-                  paddingLeft: 20,
-                  alignItems: 'center',
-                  flexDirection: 'row',
-                  // backgroundColor: 'red',
-                }}>
+                style={styles.newsDetails}>
                 <Image
                   source={{uri: item.urlToImage}}
-                  style={{
-                    height: 120,
-                    width: 120,
-                    borderRadius: 12,
-                    color:
-                      selectedCategory == item.title
-                        ? '#fff'
-                        : AppTheme.light.TextColor,
-                  }}
+                  style={[
+                    styles.newsDetailsImage,
+                    {
+                      color:
+                        selectedCategory == item.title
+                          ? '#fff'
+                          : AppTheme.light.TextColor,
+                    },
+                  ]}
                 />
                 <View
                   style={{
@@ -261,12 +207,78 @@ const News = () => {
             );
           }}
         />
-
       </ScrollView>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  topHeadlines: {
+    marginLeft: 20,
+    marginTop: 24,
+    fontSize: 20,
+    fontWeight: '800',
+    color: AppTheme.light.TextColor,
+  },
+  newsTouchable: {
+    marginRight: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  newsSnap: {
+    height: 60,
+    width: 60,
+    borderRadius: 60,
+    borderWidth: 1,
+  },
+  noImage: {
+    height: 60,
+    width: 60,
+    borderRadius: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 0.5,
+  },
+  heading: {
+    width: 50,
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '800',
+    color: AppTheme.light.TextColor,
+  },
+  newsCard: {
+    marginRight: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    borderWidth: 1,
+  },
+  newsTitle: {
+    fontSize: 18,
+    fontWeight: '800',
+  },
+  newsDetails: {
+    height: 160,
+    marginBottom: 12,
+    borderRadius: 12,
+    elevation: 20,
+    backgroundColor: '#fff',
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    paddingLeft: 20,
+    alignItems: 'center',
+    flexDirection: 'row',
+    // backgroundColor: 'red',
+  },
+  newsDetailsImage: {
+    height: 120,
+    width: 120,
+    borderRadius: 12,
+  },
+});
 
 export default News;
